@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sira is Converting Text to Sign Language</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    #output {
+      font-size: 48px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Text to Sign Language Converter</h1>
+    <div class="form-group">
+      <label for="inputText">Enter your text:</label>
+      <input type="text" class="form-control" id="inputText" placeholder="Enter text here">
+    </div>
+    <button type="button" class="btn btn-primary" onclick="convertToSignLanguage()">Convert</button>
+    <div class="mt-4">
+      <h2>Sign Language Output:</h2>
+      <div id="output"></div>
+    </div>
+  </div>
+
+  <script>
+    function convertToSignLanguage() {
+      var inputText = document.getElementById('inputText').value.toUpperCase();
+      var outputDiv = document.getElementById('output');
+      var signLanguageAlphabet = {
+        'A': '👌',
+        'B': '👍',
+        'C': '🤘',
+        'D': '👆',
+        'E': '👇',
+        'F': '👉',
+        'G': '👈',
+        'H': '✋',
+        'I': '🤙',
+        'J': '🖖',
+        'K': '🤞',
+        'L': '👊',
+        'M': '🤟',
+        'N': '🙌',
+        'O': '👐',
+        'P': '👏',
+        'Q': '👋',
+        'R': '🤚',
+        'S': '🖐',
+        'T': '🤝',
+        'U': '✌️',
+        'V': '🤜',
+        'W': '🤛',
+        'X': '☝️',
+        'Y': '👍',
+        'Z': '🤟',
+        ' ': ' '
+      };
+
+      var outputText = '';
+      for (var i = 0; i < inputText.length; i++) {
+        var character = inputText[i];
+        if (character in signLanguageAlphabet) {
+          outputText += signLanguageAlphabet[character] + ' ';
+        }
+      }
+
+      outputDiv.innerText = outputText.trim();
+    }
+  </script>
+</body>
+</html>
